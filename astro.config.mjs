@@ -1,7 +1,7 @@
 // @ts-check
-import { defineConfig } from 'astro/config';;
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 import vue from "@astrojs/vue";
-import tailwind from "@astrojs/tailwind";
 
 
 // 如果你的 repo 叫 dev-tools，請改成你的帳號與 repo
@@ -9,8 +9,19 @@ const owner = 'chenshihyuan';
 const repo = 'dev-tools';
 
 export default defineConfig({
-    integrations: [vue(), tailwind()],
     output: 'static',
     site: `https://${owner}.github.io/${repo}/`, 
     base: `/${repo}/`,
+    integrations: [vue(), tailwind()],
 });
+
+// const repo = process.env.GITHUB_REPOSITORY || '';
+// const [owner, name] = repo.split('/');
+// const site = owner && name ? `https://${owner}.github.io/${name}/` : 'http://localhost:4321/';
+
+// export default defineConfig({
+//   output: 'static',
+//   site,
+//   base: owner && name ? `/${name}/` : '/',
+//   integrations: [tailwind(), vue()]
+// });

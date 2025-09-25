@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import UbnClient from "@/components/UbnClient.vue";
+import { generateUBN } from "@/tools/ubn";
+const sample = generateUBN();
+---
+
+<BaseLayout title="統一編號 產生 / 檢核">
+  <h1 class="text-xl font-semibold mb-4">統一編號 產生 / 檢核</h1>
+  <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4">
+    示範：{sample}
+  </p>
+
+  <UbnClient client:load />
+</BaseLayout>

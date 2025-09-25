@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TwidClient from "@/components/TwidClient.vue";
+import { generateTWID } from "@/tools/twid";
+const sample = generateTWID();
+---
+
+<BaseLayout title="身分證字號 產生/驗證">
+  <h1 class="text-xl font-semibold mb-4">身分證字號 產生/驗證</h1>
+  <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4">
+    示範：{sample}
+  </p>
+
+  <TwidClient client:load />
+</BaseLayout>
