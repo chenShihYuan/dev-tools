@@ -8,7 +8,8 @@ type Tool = { id:string; title:string; description:string; href:string; tags:str
 const ALL_TOOLS: Tool[] = [
   { id: "twid", title: "身分證字號 產生/驗證", description: "臺灣身分證檢核、隨機產生（可選性別/首字）", href: "twid", tags: ["id","taiwan","generator","validator"] },
   { id: "ubn",  title: "統一編號 產生/驗證", description: "8 碼統編檢核、批次產生", href: "ubn", tags: ["ubn","tax","generator","validator"] },
-  { id: "json", title: "JSON 工具箱", description: "格式化、壓縮、驗證、Flatten", href: "json", tags: ["json","format","minify","flatten"] }
+  { id: "json", title: "JSON 工具箱", description: "格式化、壓縮、驗證、Flatten", href: "json", tags: ["json", "format", "minify", "flatten"] },
+  { id: "consent", title: "同意書編號", description: "產生/驗證 12碼編號", href: "consent", tags: ["consent","agreement","generator","validator"] }
 ];
 
 const q = ref("");
