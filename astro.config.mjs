@@ -13,15 +13,5 @@ export default defineConfig({
     site: `https://${owner}.github.io/${repo}/`, 
     base: `/${repo}/`,
     integrations: [vue(), tailwind()],
+    devToolbar: { enabled: false },
 });
-
-// const repo = process.env.GITHUB_REPOSITORY || '';
-// const [owner, name] = repo.split('/');
-// const site = owner && name ? `https://${owner}.github.io/${name}/` : 'http://localhost:4321/';
-
-// export default defineConfig({
-//   output: 'static',
-//   site,
-//   base: owner && name ? `/${name}/` : '/',
-//   integrations: [tailwind(), vue()]
-// });
