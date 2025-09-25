@@ -1,3 +1,5 @@
+# ⚠️ 請注意：不要忽略 package-lock.json，需提交到 Git 以供 CI 使用
+!package-lock.json
 # build output
 dist/
 
