@@ -52,7 +52,6 @@ const QUICK_MAX_CHILDREN = 24;      // 每層最多掃幾個子鍵，避免超�
 const QUICK_MAX_NODES = 2000;       // 遍歷節點上限，避免卡住
 
 // 快速索引 / 路徑跳轉
-const pathText = ref('');
 // 當路徑無效時暫時隱藏樹與清空輸出
 const showTree = ref(true);
 
@@ -197,27 +196,18 @@ function jumpTo(path: (string | number)[]) {
     if (!root) return;
     const r = traverseByPath(root, path);
     if (!r.found) {
-    msg.value = '⚠️ 找不到該路徑';
-    focusPath.value = [];
-    output.value = '';
-    showTree.value = false;   // 清空樹
-    return;
+      msg.value = '⚠️ 找不到該路徑';
+      // 不要隱藏樹，也不要清空輸出與目前焦點
+      focusPath.value = [];
+      output.value = '';
+      showTree.value = true;
+      return;
     }
     // 有效：顯示樹並把值寫到輸出框（即使是 null 也顯示 "null"）
     focusPath.value = path.slice();
     showTree.value = true;
     msg.value = '';
     output.value = toDisplay(r.value, 2);
-}
-function jumpFromText() {
-  const raw = pathText.value.trim();
-  if (!raw) return;
-  const parts = raw.split('.').map((s) => s.trim()).filter(Boolean).map((p) => {
-    // 支援數字索引
-    const n = Number(p);
-    return Number.isInteger(n) && String(n) === p ? n : p;
-  });
-  jumpTo(parts as (string | number)[]);
 }
 
 // 控制樹：展開全部 / 收合全部 / 自動展開單一路徑
@@ -337,7 +327,6 @@ watch(input, (val) => {
     output.value = '';
     inputRows.value = 8;    // 清空就恢復較高
     fileName.value = '';    // 清空時也清掉檔名  
-    pathText.value = '';    // 清空快速跳轉輸入
     showTree.value = true;
     return;
   }
@@ -416,20 +405,6 @@ watch(input, (val) => {
             </button>
           </template>
           <span v-else class="text-neutral-400">（無可用索引）</span>
-        </div>
-        <div class="flex flex-wrap items-center gap-2 text-sm">
-          <input
-            v-model="pathText"
-            type="text"
-            inputmode="text"
-            placeholder="輸入路徑，例如：req.data.eaCaseJson 或 items.0.id"
-            class="min-w-[280px] flex-1 h-8 px-3 rounded-2xl border border-neutral-300 dark:border-neutral-700 bg-transparent"
-            @keyup.enter="jumpFromText"
-          />
-          <button
-            class="h-8 px-3 rounded-2xl border border-neutral-300 dark:border-neutral-700"
-            @click="jumpFromText"
-          >跳轉</button>
         </div>
       </div>
       <!-- 麵包屑：可點擊回到任一層 -->

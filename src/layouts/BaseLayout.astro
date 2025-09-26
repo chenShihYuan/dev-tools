@@ -14,7 +14,7 @@ const BASE = import.meta.env.BASE_URL;
   </head>
   <body class="min-h-dvh">
     <header
-      class="sticky top-0 backdrop-blur border-b border-neutral-200/60 dark:border-neutral-800/60"
+      class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-neutral-900 backdrop-blur border-b border-neutral-200/60 dark:border-neutral-800/60"
     >
       <div class="mx-auto max-w-5xl px-4 h-14 flex items-center gap-3">
         <a href={BASE} class="font-semibold">Dev Tools</a>
@@ -23,7 +23,8 @@ const BASE = import.meta.env.BASE_URL;
         </nav>
       </div>
     </header>
-    <main class="mx-auto max-w-5xl px-4 py-6">
+
+    <main class="mx-auto max-w-5xl px-4 py-6 pt-20">
       <slot />
     </main>
     <footer class="mx-auto max-w-5xl px-4 py-10 text-sm text-neutral-500">
