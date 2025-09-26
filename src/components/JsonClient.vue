@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, nextTick } from 'vue';
 import { formatJSON, minifyJSON, tryParse } from '@/tools/json';
 import JsonTree from '@/components/JsonTree.vue';
 
@@ -32,6 +32,17 @@ const msg = ref('');
 const inputRows = ref(8);
 
 const fileName = ref('');
+
+// 輸出框自動高度（不要垂直 scrollbar）
+const outputEl = ref<HTMLTextAreaElement | null>(null);
+function resizeOutput() {
+  const el = outputEl.value;
+  if (!el) return;
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+// 當輸出內容變動時自動調整高度
+watch(output, () => nextTick(resizeOutput), { immediate: true });
 
 // ---- 快速捷徑：遞迴探索參數 ----
 const quickMinDepth = ref(2);       // 不列第一層（=1）
@@ -458,11 +469,13 @@ watch(input, (val) => {
   </div>
   <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ msg }}</p>
   <textarea
+    ref="outputEl"
     v-model="output"
-    rows="8"
+    :rows="1"
     readonly
     placeholder="顯示目前聚焦層內容（預設格式化）"
     class="w-full rounded-2xl border border-neutral-300 dark:border-neutral-700 px-3 py-2 font-mono"
+    style="overflow:hidden; resize:none;"
   />
 </div>
   </div>
