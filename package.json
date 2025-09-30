@@ -12,6 +12,7 @@
     "@astrojs/tailwind": "5.1.5",
     "@astrojs/vue": "4.5.3",
     "astro": "4.15.0",
+    "sql-formatter": "^15.6.9",
     "tailwindcss": "3.4.17",
     "vue": "3.5.0"
   },

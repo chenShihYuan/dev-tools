@@ -11,7 +11,8 @@ const ALL_TOOLS: Tool[] = [
   { id: "json", title: "JSON 工具箱", description: "格式化、壓縮、驗證、Flatten", href: "json", tags: ["json", "format", "minify", "flatten"] },
   { id: "consent", title: "同意書編號", description: "產生/驗證 12碼編號", href: "consent", tags: ["consent","agreement","generator","validator"] },
   { id: "base64", title: "Base64 編碼/解碼", description: "字串 ↔ Base64 即時同步", href: "base64", tags: ["base64","encode","decode"] },
-  { id: "timestamp", title: "時間戳 轉換", description: "Unix ↔ ISO 8601（本地時間）", href: "timestamp", tags: ["timestamp","unix","iso","datetime"] }
+  { id: "timestamp", title: "時間戳 轉換", description: "Unix ↔ ISO 8601（本地時間）", href: "timestamp", tags: ["timestamp", "unix", "iso", "datetime"] },
+  { id: "sqlfmt", title: "SQL 格式化", description: "格式化/壓縮 SQL 語法", href: "sql", tags: ["sql","formatter","minify"] },
 ];
 
 const q = ref("");
