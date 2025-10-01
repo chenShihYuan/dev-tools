@@ -13,6 +13,7 @@ const ALL_TOOLS: Tool[] = [
   { id: "base64", title: "Base64 編碼/解碼", description: "字串 ↔ Base64 即時同步", href: "base64", tags: ["base64","encode","decode"] },
   { id: "timestamp", title: "時間戳 轉換", description: "Unix ↔ ISO 8601（本地時間）", href: "timestamp", tags: ["timestamp", "unix", "iso", "datetime"] },
   { id: "sqlfmt", title: "SQL 格式化", description: "格式化/壓縮 SQL 語法", href: "sql", tags: ["sql","formatter","minify"] },
+  { id: "diff", title: "Diff 工具", description: "比較兩段文字差異（新增、刪除、修改）", href: "diff", tags: ["diff","compare","text"] },
 ];
 
 const q = ref("");
