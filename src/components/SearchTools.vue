@@ -3,6 +3,7 @@ import { ref, computed } from "vue";
 import BaseInput from "./ui/BaseInput.vue";
 import BaseSeparator from "./ui/BaseSeparator.vue";
 import ToolCard from "./ToolCard.vue";
+import ModelClient from "./ModelClient.vue";
 
 type Tool = { id:string; title:string; description:string; href:string; tags:string[] };
 const ALL_TOOLS: Tool[] = [
@@ -13,7 +14,8 @@ const ALL_TOOLS: Tool[] = [
   { id: "base64", title: "Base64 編碼/解碼", description: "字串 ↔ Base64 即時同步", href: "base64", tags: ["base64","encode","decode"] },
   { id: "timestamp", title: "時間戳 轉換", description: "Unix ↔ ISO 8601（本地時間）", href: "timestamp", tags: ["timestamp", "unix", "iso", "datetime"] },
   { id: "sqlfmt", title: "SQL 格式化", description: "格式化/壓縮 SQL 語法", href: "sql", tags: ["sql","formatter","minify"] },
-  { id: "diff", title: "Diff 工具", description: "比較兩段文字差異（新增、刪除、修改）", href: "diff", tags: ["diff","compare","text"] },
+  { id: "diff", title: "比對差異", description: "比較兩段文字差異（新增、刪除、修改）", href: "diff", tags: ["diff", "compare", "text"] },
+  { id: "jsonToModel", title: "JSON轉資料模型", description: "轉資料模型", href: "model", tags: ["json","model","jsonToModel"] },
 ];
 
 const q = ref("");

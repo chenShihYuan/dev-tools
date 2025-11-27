@@ -1,0 +1,10 @@
+---
+// 📄 路徑：src/pages/model.astro
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ModelClient from "@/components/ModelClient.vue";
+---
+
+<BaseLayout title="Model 產生器">
+  <h1 class="text-xl font-semibold mb-4">Model 產生器</h1>
+  <ModelClient client:load />
+</BaseLayout>

@@ -63,7 +63,7 @@ function syncScroll(from: "left" | "right" | "result") {
 
 <template>
   <div class="space-y-4">
-    <h2 class="text-lg font-semibold">Diff 工具</h2>
+    <h2 class="text-lg font-semibold">比對差異</h2>
     <p class="text-sm text-neutral-500">貼上兩段文字，比對差異（新增綠底、刪除紅底）。</p>
 
     <div class="flex flex-col md:flex-row gap-3">
